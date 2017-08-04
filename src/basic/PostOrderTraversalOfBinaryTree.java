@@ -11,7 +11,7 @@ public class PostOrderTraversalOfBinaryTree {
 
         int data;
 
-        BinaryTreeNode(int data) {
+        public BinaryTreeNode(int data) {
             this.data = data;
         }
     }
