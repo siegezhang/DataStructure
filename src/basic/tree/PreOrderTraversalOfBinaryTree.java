@@ -1,4 +1,4 @@
-package basic;
+package basic.tree;
 
 /**
  * Created by siege on 2017/8/5.
