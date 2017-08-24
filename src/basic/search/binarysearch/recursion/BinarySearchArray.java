@@ -1,4 +1,4 @@
-package basic.search.recursion;
+package basic.search.binarysearch.recursion;
 
 /**
  * Created by siege on 2017/8/21.
