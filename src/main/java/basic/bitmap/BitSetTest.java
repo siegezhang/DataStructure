@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by siege on 2017/9/2.
  */
-public class BitSetTest {
+class BitSetTest {
     private static BitSet bitSet1;
     private static BitSet bitSet2;
     private static int[] data={2,42,5,6,18,33,15,25,31,28,37};
@@ -70,24 +70,21 @@ public class BitSetTest {
                 if (bitSet2.get(j++)){
                     data[i]=j-1;
                     break;
-                }else
-                    continue;
+                }
             }
-
         }
     }
 
     private static void putValueIntoBitSet(int[] data, BitSet bitSet2) {
-        for (int i = 0; i <data.length ; i++) {
-            bitSet2.set(data[i]);
+        for (int item:data){
+            bitSet2.set(item);
         }
     }
 
     private static int getMaxValue(int[] data) {
         int temp=data[0];
-        for (int i = 0; i <data.length ; i++) {
-            if (temp<data[i])
-                temp=data[i];
+        for(int item:data){
+            temp=temp<item?item:temp;
         }
         System.out.println("max value:"+temp);
         return temp;
