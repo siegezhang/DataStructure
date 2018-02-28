@@ -11,9 +11,10 @@ public class CircularQueue<E> {
     private int front;
     private int number;
 
+    @SuppressWarnings("unchecked")
     public CircularQueue(int maxSize) {
         this.maxSize = maxSize;
-        circularQueueAr= (E[]) new Object[maxSize];
+        circularQueueAr= (E[]) new Object[maxSize];//泛型会在编译后擦除的，故此处强转没有问题
         number=0;
         rear=0;
         front =0;
@@ -48,7 +49,7 @@ public class CircularQueue<E> {
     }
 
     public boolean isFull() {
-        return number==circularQueueAr.length;
+        return number==maxSize;
     }
 
 
