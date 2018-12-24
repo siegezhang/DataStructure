@@ -8,7 +8,7 @@ import java.util.Map;
 public class JDK9Test {
     @Test
     public void test1(){
-        List immutableList=List.of();
+        List<String> immutableList=List.of();
         immutableList=List.of("one","two","three");
 
         Map emptyImmutableMap=Map.of();
