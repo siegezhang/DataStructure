@@ -13,6 +13,14 @@ public class JDK9Test {
 
         Map emptyImmutableMap=Map.of();
         Map nonemptyImmutableMap=Map.of(1,"one",2,"two",3,"three");
+    }@Test
+
+    public void test2(){
+        List<String> immutableList=List.of();
+        immutableList=List.of("one","two","three");
+
+        Map emptyImmutableMap=Map.of();
+        Map nonemptyImmutableMap=Map.of(1,"one",2,"two",3,"three");
 
 
     }

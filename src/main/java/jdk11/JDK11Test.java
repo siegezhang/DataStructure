@@ -1,5 +1,7 @@
 package jdk11;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.Test;
 
 public class JDK11Test {
 
@@ -38,8 +39,11 @@ public class JDK11Test {
 
   @Test
   public void test2() throws IOException, InterruptedException {
-    HttpClient client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1)
-        .connectTimeout(Duration.ofSeconds(3)).build();
+    HttpClient client =
+        HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_1_1)
+            .connectTimeout(Duration.ofSeconds(3))
+            .build();
     HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://www.baidu.com")).build();
     HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
     System.out.println(response.statusCode());
@@ -48,10 +52,11 @@ public class JDK11Test {
 
   @Test
   public void test3() {
-    var product = new Object() {
-      String name = "Apple";
-      int total = 30;
-    };
+    var product =
+        new Object() {
+          String name = "Apple";
+          int total = 30;
+        };
     System.out.println("name=" + product.name + ",total=" + product.total);
   }
 }
