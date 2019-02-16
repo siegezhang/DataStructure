@@ -19,7 +19,6 @@ public class CheckGetterProcessor extends AbstractProcessor {
 
   @Override
   public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-    // TODO: annotated ElementKind.FIELD
     for (TypeElement annotatedClass :
         ElementFilter.typesIn(roundEnv.getElementsAnnotatedWith(CheckGetter.class))) {
       for (VariableElement field : ElementFilter.fieldsIn(annotatedClass.getEnclosedElements())) {
