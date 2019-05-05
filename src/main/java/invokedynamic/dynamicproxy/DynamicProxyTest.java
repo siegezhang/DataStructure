@@ -6,7 +6,7 @@ public class DynamicProxyTest {
   @Test
   public void test() {
     BeProxyInterface beProxyInterface = new BeProxyInterfaceImpl();
-    ProxyHandler handler = new ProxyHandler(beProxyInterface);
-    handler.getProxy().testMethod();
+    BeProxyInterface proxy = (BeProxyInterface) new ProxyHandler().bind(beProxyInterface);
+    proxy.testMethod();
   }
 }
