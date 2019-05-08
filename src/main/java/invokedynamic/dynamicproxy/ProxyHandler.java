@@ -7,6 +7,12 @@ import java.lang.reflect.Proxy;
 public class ProxyHandler implements InvocationHandler {
   private Object target;
 
+  public ProxyHandler(Object target) {
+    this.target = target;
+  }
+
+  public ProxyHandler() {}
+
   public Object bind(Object target) {
     this.target = target;
     return Proxy.newProxyInstance(
