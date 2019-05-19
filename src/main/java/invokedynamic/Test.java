@@ -3,7 +3,6 @@ package invokedynamic;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
-import java.lang.reflect.InvocationTargetException;
 
 public class Test {
   class GrandFather {
@@ -13,12 +12,14 @@ public class Test {
   }
 
   class Father extends GrandFather {
+   @Override
    public  void thinking() {
       System.out.println("i am father");
     }
   }
 
   class Son extends Father {
+    @Override
     public void  thinking() {
       try {
         MethodHandle mh =
