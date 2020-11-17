@@ -74,7 +74,7 @@ public class OS30Utils {
     public void testInsert() throws IOException {
         //insertRunFile(new File("C:\\Users\\siege\\Desktop\\30os\\tolset\\harib01g\\run.bat"),"D:\\des");
         //insertRunFile(new File("C:\\Users\\siege\\Desktop\\30os\\tolset\\harib01g\\run.bat"),"C:\\Users\\siege\\Desktop\\30os\\tolset");
-        insertRunFile(new File("F:\\booktool\\source\\c05\\run.bat"),"F:\\booktool\\source");
+        insertRunFile(new File("F:\\booktool\\nasmide.exe"),"F:\\booktool\\source");
     }
 
     @Test
