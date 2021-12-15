@@ -1,0 +1,9 @@
+#set( $newline="")
+
+#foreach ($item in $list)
+    #if($foreach.count!=$list.size())
+        $item,$newline
+    #else
+        $item
+    #end
+#end

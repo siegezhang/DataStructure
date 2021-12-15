@@ -1,0 +1,8 @@
+#set( $newline="")
+
+
+#foreach ($item in $list)
+    #if($item.contains("Time")||$item.contains("Date"))
+        $item,
+    #end
+#end

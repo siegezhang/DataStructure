@@ -1,0 +1,33 @@
+#set( $newline="")
+#set( $jdbcTypeMap = {
+"Long":"BIGINT",
+"String":"VARCHAR",
+"Integer":"INTEGER",
+"Date":"TIMESTAMP",
+"Boolean":"BOOLEAN",
+"byte[]":"VARBINARY",
+"BigDecimal":"NUMERIC"
+})
+
+
+
+#foreach ($item in $list)
+    #if($foreach.count!=$list.size())
+        $map.get($item),
+    #else
+        $map.get($item)
+    #end
+#end
+
+#foreach ($item in $jdbcList)
+    #if($foreach.count!=$list.size())
+        $jdbcTypeMap.get($item),
+    #else
+        $jdbcTypeMap.get($item)
+    #end
+#end
+
+
+#foreach($data in $map.entrySet())
+       ${data.key},${data.value}
+#end
