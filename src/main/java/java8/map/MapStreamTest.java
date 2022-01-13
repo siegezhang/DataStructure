@@ -1,4 +1,4 @@
-package map;
+package java8.map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
