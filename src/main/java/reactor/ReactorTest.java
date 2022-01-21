@@ -8,6 +8,7 @@ import reactor.core.scheduler.Schedulers;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
 
@@ -103,5 +104,34 @@ public class ReactorTest {
         .subscribeOn(Schedulers.parallel())
         .toStream()
         .forEach(System.out::println);
+  }
+
+  /**
+   * <code>
+   * Tue Jan 18 18:57:51 CST 2022
+   * Tue Jan 18 18:57:51 CST 2022
+   * Tue Jan 18 18:57:51 CST 2022
+   * Tue Jan 18 18:57:56 CST 2022
+   * </code> 一个使用Mono.just创建，一个用Mono.defer创建，然后分别通过lambda表达式订阅这两个publisher，
+   * 可以看到两个输出的时间都是18:57:51，延迟5秒钟后重新订阅，Mono.just创建的数据源时间没变，
+   * 但是Mono.defer创建的数据源时间相应的延迟了5秒钟，原因在于Mono.just会在声明阶段构造Date对象，只
+   * 创建一次，但是Mono.defer却是在subscribe阶段才会创建对应的Date对象，每次调用subscribe方法都会创建Date对象
+   */
+  @Test
+  public void defer() {
+    // 声明阶段创建DeferClass对象
+
+    Mono<Date> m1 = Mono.just(new Date());
+    Mono<Date> m2 = Mono.defer(() -> Mono.just(new Date()));
+    m1.subscribe(System.out::println);
+    m2.subscribe(System.out::println);
+    // 延迟5秒钟
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    m1.subscribe(System.out::println);
+    m2.subscribe(System.out::println);
   }
 }

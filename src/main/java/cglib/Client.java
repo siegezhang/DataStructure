@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class Client {
   @Test
   public void testCglib() {
-    System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "F:\\test");
+    System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E:\\test");
     Enhancer enhancer = new Enhancer();
     enhancer.setSuperclass(HelloServiceImpl.class);
     // enhancer.setCallback(new HelloMethodInterceptor());

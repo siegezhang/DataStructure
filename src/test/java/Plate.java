@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Test;
+
 import java.util.function.DoubleSupplier;
 import java.util.function.IntSupplier;
 import java.util.function.LongSupplier;
@@ -16,7 +18,8 @@ public class Plate<T> {
         return item;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         //DoubleSupplier
         //LongSupplier
 

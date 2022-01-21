@@ -1,5 +1,7 @@
 package thread.interrupt;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 
 /**
@@ -49,7 +51,8 @@ class MyRunnable implements Runnable{
      thread.interrupt();
  * */
 public class TerminatingThreadUsingInterrupt {
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void test() throws IOException {
         MyRunnable runnable=new MyRunnable();
         Thread t=new Thread(runnable,"Thread-1");
         t.start();

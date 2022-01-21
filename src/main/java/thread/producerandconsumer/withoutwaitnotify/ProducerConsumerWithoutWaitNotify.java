@@ -1,5 +1,7 @@
 package thread.producerandconsumer.withoutwaitnotify;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
 /**
@@ -55,7 +57,8 @@ class Consumer extends Thread{
     }
 }
 public class ProducerConsumerWithoutWaitNotify {
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Producer producer=new Producer();
         Consumer consumer=new Consumer(producer);
 

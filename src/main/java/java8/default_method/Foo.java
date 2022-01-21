@@ -1,7 +1,10 @@
 package java8.default_method;
 
+import org.junit.jupiter.api.Test;
+
 public class Foo implements IFoo {
-  public static void main(String[] args) {
+  @Test
+  public void test() {
     Foo foo = new Foo();
     foo.bar(42);
     IFoo ifoo = foo;

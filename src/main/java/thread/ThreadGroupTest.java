@@ -1,10 +1,13 @@
 package thread;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Created by siege on 2017/8/31.
  */
 public class ThreadGroupTest {
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         ThreadGroup threadGroupMain=Thread.currentThread().getThreadGroup();
         System.out.println("current ThreadGroup name ="+threadGroupMain.getName());
 

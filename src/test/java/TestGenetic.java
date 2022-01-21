@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Test;
+
 public class TestGenetic {
     public static <AnyType extends Comparable<? super AnyType>> AnyType findMax(AnyType[] arr){
         int maxIndex=0;
@@ -7,7 +9,8 @@ public class TestGenetic {
         }
         return arr[maxIndex];
     }
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Shape[] shapes={new Shape(),new Shape()};
         Square[] squares={new Square(),new Square()};
         Shape shape=findMax(shapes);

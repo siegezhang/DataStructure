@@ -6,7 +6,8 @@ import java.util.function.Supplier;
 public class Test {
 
 
-    public static void main(String[] args) {
+    @org.junit.jupiter.api.Test
+    public void test() {
         new Test().test(() -> "test");
 
         Supplier<Test> supplier;

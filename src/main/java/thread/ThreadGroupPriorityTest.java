@@ -1,10 +1,13 @@
 package thread;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Created by siege on 2017/8/31.
  */
 public class ThreadGroupPriorityTest {
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         ThreadGroup threadGroup=new ThreadGroup("threadGroup");
         System.out.println ("threadGroup's default maximum priority = "+ threadGroup.getMaxPriority());
 

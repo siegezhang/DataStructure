@@ -1,5 +1,7 @@
 package thread.join;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Created by siege on 2017/9/3.
  */
@@ -19,7 +21,8 @@ class MyRunnable1 implements Runnable{
     }
 }
 public class JoinTest {
-    public static void main(String[] args) throws InterruptedException {
+    @Test
+    public void test() throws InterruptedException {
         System.out.println("In main() method");
         MyRunnable1 runnable1=new MyRunnable1();
         Thread thread1=new Thread(runnable1,"Thread-1");
