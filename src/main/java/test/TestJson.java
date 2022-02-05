@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TestJson {
@@ -154,5 +156,15 @@ public class TestJson {
     public void setWmusicinfodl(String wmusicinfodl) {
       this.wmusicinfodl = wmusicinfodl;
     }
+  }
+
+  @Test
+  public void test1() {
+    Map<String,String> map=new HashMap<>();
+    String s="hello";
+    map.put("key1",s);
+    s="world";
+    map.put("key2",s);
+    System.out.println(map);
   }
 }
