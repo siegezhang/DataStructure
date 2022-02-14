@@ -3,10 +3,7 @@ package java8.map;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MapStreamTest {
@@ -59,5 +56,17 @@ public class MapStreamTest {
           newList.add(e);
         });
     System.out.println(newList);
+  }
+
+  @Test
+  public void test4() {
+    String[] words = new String[] {"Hello", "World"};
+    List<String> a =
+        Arrays.stream(words)
+            .map(word -> word.split(""))
+            .flatMap(Arrays::stream)
+            .distinct()
+            .toList();
+    a.forEach(System.out::print);
   }
 }
