@@ -1,18 +1,32 @@
 package java8.groupby;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BiConsumer;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class GroupByTest {
   private List<People> people;
   private BiConsumer soutKV;
   private Map result;
+
+  public static <T> Collector<T, ?, List<T>> toSortedList(Comparator<? super T> c) {
+    return Collectors.collectingAndThen(
+        Collectors.toCollection(() -> new TreeSet<>(c)), ArrayList::new);
+  }
+
+  // 收集器 如果获取最小值  Collectors.maxBy(c) -》 Collectors.minBy(c)
+  public static <T> Collector<T, ?, T> toSorted(Comparator<? super T> c) {
+    Collector<T, ?, T> usersObjectUsersCollector =
+        Collectors.collectingAndThen(Collectors.maxBy(c), Optional::get);
+    return usersObjectUsersCollector;
+  }
 
   @Before
   public void init() {
@@ -22,7 +36,6 @@ public class GroupByTest {
 
   @After
   public void soutResult() {
-
     result.forEach(soutKV);
   }
 
@@ -60,5 +73,74 @@ public class GroupByTest {
                     Collectors.mapping(People::getName, Collectors.toSet())));
   }
 
+  @Test
+  public void testGroupByAndOrderBy() {
+    List<OrderMapVo> list = new ArrayList<>();
+    // 填充数据...
+    // 排序
+    TreeMap<String, List<OrderMapVo>> dayMap =
+        list.stream()
+            .collect(
+                Collectors.groupingBy(
+                    OrderMapVo::getLaunchDate,
+                    TreeMap::new,
+                    Collectors.collectingAndThen(
+                        Collectors.toList(),
+                        sub ->
+                            sub.stream()
+                                .sorted(
+                                    Comparator.comparing(
+                                            OrderMapVo::getSexCode,
+                                            Comparator.nullsLast(Comparator.naturalOrder()))
+                                        .thenComparing(
+                                            OrderMapVo::getCategoryCode,
+                                            Comparator.nullsLast(Comparator.naturalOrder())))
+                                .collect(Collectors.toList()))));
+  }
+
+  @Test
+  public void testSorted1() {
+    List<Users> list = new ArrayList<>();
+    Map<String, List<Users>> sortUsers =
+        list.stream()
+            .collect(
+                Collectors.groupingBy(
+                    Users::getName,
+                    GroupByTest.toSortedList(Comparator.comparing(Users::getAge).reversed())));
+  }
+
+  @Test
+  public void testSorted2() {
+    List<Users> list = new ArrayList<>();
+    Map<String, Users> sortUsersMax =
+        list.stream()
+            .collect(
+                Collectors.groupingBy(
+                    Users::getName, GroupByTest.toSorted(Comparator.comparing(Users::getAge))));
+  }
+
+  @Test
+  public void testSorted3() {
+    List<String> list = Arrays.asList("2018-09-04", "2018-09-06", "2018-09-17");
+    list.sort(Comparator.comparing(String::valueOf).reversed());
+    System.out.println(list);
+  }
+
   public static class GroupingByObj {}
+
+  @Data
+  @Accessors(chain = true)
+  public class OrderMapVo {
+    private String launchDate;
+    private String sexCode;
+    private String categoryCode;
+  }
+
+  @Data
+  @Accessors(chain = true)
+  public class Users {
+    private Integer age;
+    private String name;
+    private Integer sex;
+  }
 }

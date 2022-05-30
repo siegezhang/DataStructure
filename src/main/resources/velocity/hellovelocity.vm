@@ -5,3 +5,11 @@ Welcome $test1.hello.substring(0,1).toUpperCase()
 ${test1.hello}
 
 today is $date.
+
+
+#set ($date = $dateUtil)
+
+#set ($current_time = $date.getCurrentDate())
+#set ($the_year = $date.getCurrentDate("yyyy", $locale))
+
+year is $the_year
