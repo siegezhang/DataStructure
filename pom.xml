@@ -10,6 +10,7 @@
 
     <properties>
         <kotlin.version>1.6.0</kotlin.version>
+        <repository.url>http://139.224.50.158:8081</repository.url>
     </properties>
 
 
@@ -135,7 +136,34 @@
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/pentaho-kettle/kettle-core -->
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-core</artifactId>
+            <version>8.1.0.0-365</version>
+            <!--            <scope>system</scope>-->
+            <!--            <systemPath>D:/kettle-core-8.1.0.0-365.jar</systemPath>-->
+        </dependency>
+
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-engine</artifactId>
+            <version>8.1.0.0-365</version>
+            <!--            <scope>system</scope>-->
+            <!--            <systemPath>D:/kettle-engine-8.1.0.0-365.jar</systemPath>-->
+        </dependency>
+
+        <dependency>
+            <groupId>pentaho</groupId>
+            <artifactId>metastore</artifactId>
+            <version>8.1.0.0-365</version>
+            <!--            <scope>system</scope>-->
+            <!--            <systemPath>D:/metastore-8.1.0.0-365.jar</systemPath>-->
+        </dependency>
+
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -191,6 +219,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
