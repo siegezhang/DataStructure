@@ -2,6 +2,7 @@ package java8.groupby;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.apache.commons.compress.utils.Lists;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GroupByTest {
   private List<People> people;
@@ -124,6 +126,25 @@ public class GroupByTest {
     List<String> list = Arrays.asList("2018-09-04", "2018-09-06", "2018-09-17");
     list.sort(Comparator.comparing(String::valueOf).reversed());
     System.out.println(list);
+  }
+
+  @Test
+  public void testPartitioningBy() {
+    Stream<Integer> s = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    Map<Boolean, List<Integer>> map = s.collect(Collectors.partitioningBy(num -> num > 3));
+    System.out.println("Elements in stream partitioned by less than equal to 3: \n" + map);
+  }
+
+  @Test
+  public void testEmptyList() {
+    List<String> list =
+        Lists.<String>newArrayList().stream().map(String::toUpperCase).collect(Collectors.toList());
+    Map<String, String> map =
+        Lists.<String>newArrayList().stream()
+            .map(String::toUpperCase)
+            .collect(Collectors.toMap(String::valueOf, it -> it));
+    System.out.println(list);
+    System.out.println(map);
   }
 
   public static class GroupingByObj {}
