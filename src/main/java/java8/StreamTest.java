@@ -1,11 +1,13 @@
 package java8;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
@@ -65,5 +67,52 @@ public class StreamTest {
     System.out.println("Use reduce() method - to calculate sum of Double in DoubleStream");
     OptionalDouble optionalDouble = streamOfDoubles.reduce((i1, i2) -> i1 + i2);
     System.out.println("sum=" + optionalDouble.getAsDouble());
+  }
+
+  @Test
+  public void test4() {
+    System.out.println("Create DoubleStream");
+    DoubleStream streamOfDoubles = DoubleStream.of(1.1, 2.2, 3.1);
+    System.out.println("Use reduce() method - to calculate sum of Double in DoubleStream");
+    OptionalDouble optionalDouble = streamOfDoubles.reduce((i1, i2) -> i1 + i2);
+    System.out.println("sum=" + optionalDouble.getAsDouble());
+  }
+
+  @Test
+  public void test5() {
+    List<Student> list = new ArrayList<>();
+    list.add(new Student());
+    list.add(new Student());
+    List<Student> a =
+        list.stream()
+            .map(
+                e -> {
+                  e.setName("test");
+                  return e;
+                })
+            .filter(e -> StringUtils.equals(e.getName(), "test"))
+            .collect(Collectors.toList());
+    System.out.println(a);
+  }
+
+  public static class Student {
+    private String name;
+    private int age;
+
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+
+    public int getAge() {
+      return age;
+    }
+
+    public void setAge(int age) {
+      this.age = age;
+    }
   }
 }
