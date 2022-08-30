@@ -1,10 +1,13 @@
 package java8.map;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MapStreamTest {
   @Test
@@ -68,5 +71,45 @@ public class MapStreamTest {
             .distinct()
             .toList();
     a.forEach(System.out::print);
+  }
+
+  /** 测试map后为null的情况 */
+  @Test
+  public void test5() {
+    List<String> names =
+        Stream.of(new Student(null, 1), new Student("world", 2)).map(Student::getName).toList();
+    System.out.println(names);
+  }
+
+  /** 测试map后toSet的情况 */
+  @Test
+  public void test6() {
+    Set<String> names =
+        Stream.of(new Student(null, 5), new Student(null, 5), new Student("world", 8))
+            .map(Student::getName)
+            .collect(Collectors.toSet());
+    System.out.println(names);
+  }
+
+  @Test
+  public void test7() {
+    Map<String, Student> map =
+        Stream.of(new Student("world", 15), new Student("hello", 16))
+            .collect(Collectors.toMap(Student::getName, it -> it));
+    map.entrySet().stream()
+        .map(
+            e -> {
+              System.out.println(e);
+              return e;
+            })
+        .toList();
+    System.out.println(map);
+  }
+
+  @Data
+  @AllArgsConstructor
+  public static class Student {
+    private String name;
+    private int age;
   }
 }
