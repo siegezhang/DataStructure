@@ -106,6 +106,14 @@ public class MapStreamTest {
     System.out.println(map);
   }
 
+  /** 测试空集合的情况 */
+  @Test
+  public void test8() {
+    List<Student> students = new ArrayList<>();
+    String names = students.stream().map(Student::getName).collect(Collectors.joining());
+    System.out.println(names);
+  }
+
   @Data
   @AllArgsConstructor
   public static class Student {
