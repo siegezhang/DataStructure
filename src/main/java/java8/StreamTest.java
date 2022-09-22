@@ -1,5 +1,6 @@
 package java8;
 
+import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
@@ -93,6 +94,14 @@ public class StreamTest {
             .filter(e -> StringUtils.equals(e.getName(), "test"))
             .collect(Collectors.toList());
     System.out.println(a);
+  }
+
+  @Test
+  public void test6() {
+    List<Integer> list1 = Lists.<Integer>newArrayList(1, 2, 3, 4);
+    List<Integer> list2 = Lists.<Integer>newArrayList(3, 4, 5, 6);
+    list1.removeAll(list2);
+    System.out.println(list1);
   }
 
   public static class Student {
