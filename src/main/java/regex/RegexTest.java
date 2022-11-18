@@ -1,11 +1,11 @@
 package regex;
 
 
-import org.junit.jupiter.api.*;
+import org.junit.*;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assertions.assertAll;
+import static org.junit.Assertions.assertEquals;
+import static org.junit.Assertions.assertTrue;
 
 public class RegexTest {
 

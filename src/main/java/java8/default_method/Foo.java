@@ -1,6 +1,6 @@
 package java8.default_method;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class Foo implements IFoo {
   @Test

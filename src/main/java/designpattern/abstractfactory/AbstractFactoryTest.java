@@ -1,6 +1,6 @@
 package designpattern.abstractfactory;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class AbstractFactoryTest {
   @Test

@@ -1,7 +1,7 @@
 package jdk17;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assertions;
+import org.junit.Test;
 
 public class JDK17Test {
     @Test

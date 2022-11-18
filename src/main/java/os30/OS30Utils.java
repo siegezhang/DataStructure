@@ -1,6 +1,6 @@
 package os30;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.*;
 

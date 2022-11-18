@@ -3,8 +3,8 @@ package java8.extend;
 import lombok.*;
 import org.jooq.lambda.Seq;
 import org.jooq.lambda.tuple.Tuple2;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
