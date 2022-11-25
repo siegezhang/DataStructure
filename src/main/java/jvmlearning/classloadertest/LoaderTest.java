@@ -1,6 +1,6 @@
 package jvmlearning.classloadertest;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class LoaderTest {
   @Test

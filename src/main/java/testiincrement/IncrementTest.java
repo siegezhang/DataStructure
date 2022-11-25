@@ -1,6 +1,6 @@
 package testiincrement;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class IncrementTest {
   @Test

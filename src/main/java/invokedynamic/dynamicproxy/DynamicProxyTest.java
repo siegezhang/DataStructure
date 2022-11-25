@@ -1,7 +1,7 @@
 package invokedynamic.dynamicproxy;
 
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;

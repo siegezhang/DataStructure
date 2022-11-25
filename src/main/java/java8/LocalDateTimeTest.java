@@ -1,6 +1,6 @@
 package java8;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;

@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 public class Test {
 
 
-    @org.junit.jupiter.api.Test
+    @org.junit.Test
     public void test() {
         new Test().test(() -> "test");
 

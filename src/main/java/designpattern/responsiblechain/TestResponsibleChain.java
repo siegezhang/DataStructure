@@ -1,6 +1,6 @@
 package designpattern.responsiblechain;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class TestResponsibleChain {
   @Test

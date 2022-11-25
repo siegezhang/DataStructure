@@ -3,7 +3,7 @@ package cglib;
 import net.sf.cglib.core.DebuggingClassWriter;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /** https://www.jianshu.com/p/9a61af393e41?from=timeline&isappinstalled=0 */
 public class Client {

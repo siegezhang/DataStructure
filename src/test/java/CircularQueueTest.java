@@ -1,9 +1,9 @@
 import basic.circularqueue.CircularQueue;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeAll;
+import org.junit.DisplayName;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assertions.*;
 
 class CircularQueueTest {
     private static CircularQueue<String> queue;

@@ -1,6 +1,6 @@
 package thread;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Created by siege on 2017/8/31.

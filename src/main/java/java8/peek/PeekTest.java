@@ -3,7 +3,7 @@ package java8.peek;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
