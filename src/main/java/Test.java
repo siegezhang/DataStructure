@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.stream.Stream;
 
 public class Test {
@@ -15,29 +16,88 @@ public class Test {
 
   public static void main(String[] args) {
     Stream.of(
-                    new JavaFile("UpdateSysApptSchedulingCategoryAction","UpdateSysApptSchedulingCategoryRequest","UpdateSysApptSchedulingCategoryResponse"),
-                    new JavaFile("UpdateSysDepartmentAction","UpdateSysDepartmentRequest","UpdateSysDepartmentResponse"),
-                    new JavaFile("UpdateSysDepartmentEmployeeAction","UpdateSysDepartmentEmployeeRequest","UpdateSysDepartmentEmployeeResponse"),
-                    new JavaFile("UpdateSysEmployeeAction","UpdateSysEmployeeRequest","UpdateSysEmployeeResponse"),
-                    new JavaFile("UpdateSysEmployeeRoleAction","UpdateSysEmployeeRoleRequest","UpdateSysEmployeeRoleResponse"),
-                    new JavaFile("UpdateSysEmrProgressItemAction","UpdateSysEmrProgressItemRequest","UpdateSysEmrProgressItemResponse"),
-                    new JavaFile("UpdateSysEmrProgressTypeAction","UpdateSysEmrProgressTypeRequest","UpdateSysEmrProgressTypeResponse"),
-                    new JavaFile("UpdateSysHospitalAction","UpdateSysHospitalRequest","UpdateSysHospitalResponse"),
-                    new JavaFile("UpdateSysHospitalDepartmentAction","UpdateSysHospitalDepartmentRequest","UpdateSysHospitalDepartmentResponse"),
-                    new JavaFile("UpdateSysHospitalDepartmentListAction","UpdateSysHospitalDepartmentListRequest","UpdateSysHospitalDepartmentResponse"),
-                    new JavaFile("UpdateSysMessageTemplateAction","UpdateSysMessageTemplateRequest","UpdateSysMessageTemplateResponse"),
-                    new JavaFile("UpdateSysPatientSourceAction","UpdateSysPatientSourceRequest","UpdateSysPatientSourceResponse"),
-                    new JavaFile("UpdateSysPatientTagAction","UpdateSysPatientTagRequest","UpdateSysPatientTagResponse"),
-                    new JavaFile("UpdateSysRegisterTypeAction","UpdateSysRegisterTypeRequest","UpdateSysRegisterTypeResponse"),
-                    new JavaFile("UpdateSysRoleInfoAction","UpdateSysRoleInfoRequest","UpdateSysRoleInfoResponse"),
-                    new JavaFile("UpdateSysStandardCategoryAction","UpdateSysStandardCategoryRequest","UpdateSysStandardCategoryResponse"),
-                    new JavaFile("UpdateSysStandardItemAction","UpdateSysStandardItemRequest","UpdateSysStandardItemResponse"),
-                    new JavaFile("UpdateSysStationRadioAction","UpdateSysStationRadioRequest","UpdateSysStationRadioResponse"),
-                    new JavaFile("UpdateSysStationRadioEnableStatusAction","UpdateSysStationRadioRequest","UpdateSysStationRadioResponse"),
-                    new JavaFile("UpdateSysTreatFeeCategoryAction","UpdateSysTreatFeeCategoryRequest","UpdateSysTreatFeeCategoryResponse"),
-                    new JavaFile("UpdateSysTreatFeeItemAction","UpdateSysTreatFeeItemRequest","UpdateSysTreatFeeItemResponse"),
-                    new JavaFile("UpdateSysWhiteListAction","UpdateSysWhiteListRequest","UpdateSysWhiteListResponse")
-                    )
+            new JavaFile(
+                "UpdateSysApptSchedulingCategoryAction",
+                "UpdateSysApptSchedulingCategoryRequest",
+                "UpdateSysApptSchedulingCategoryResponse"),
+            new JavaFile(
+                "UpdateSysDepartmentAction",
+                "UpdateSysDepartmentRequest",
+                "UpdateSysDepartmentResponse"),
+            new JavaFile(
+                "UpdateSysDepartmentEmployeeAction",
+                "UpdateSysDepartmentEmployeeRequest",
+                "UpdateSysDepartmentEmployeeResponse"),
+            new JavaFile(
+                "UpdateSysEmployeeAction", "UpdateSysEmployeeRequest", "UpdateSysEmployeeResponse"),
+            new JavaFile(
+                "UpdateSysEmployeeRoleAction",
+                "UpdateSysEmployeeRoleRequest",
+                "UpdateSysEmployeeRoleResponse"),
+            new JavaFile(
+                "UpdateSysEmrProgressItemAction",
+                "UpdateSysEmrProgressItemRequest",
+                "UpdateSysEmrProgressItemResponse"),
+            new JavaFile(
+                "UpdateSysEmrProgressTypeAction",
+                "UpdateSysEmrProgressTypeRequest",
+                "UpdateSysEmrProgressTypeResponse"),
+            new JavaFile(
+                "UpdateSysHospitalAction", "UpdateSysHospitalRequest", "UpdateSysHospitalResponse"),
+            new JavaFile(
+                "UpdateSysHospitalDepartmentAction",
+                "UpdateSysHospitalDepartmentRequest",
+                "UpdateSysHospitalDepartmentResponse"),
+            new JavaFile(
+                "UpdateSysHospitalDepartmentListAction",
+                "UpdateSysHospitalDepartmentListRequest",
+                "UpdateSysHospitalDepartmentResponse"),
+            new JavaFile(
+                "UpdateSysMessageTemplateAction",
+                "UpdateSysMessageTemplateRequest",
+                "UpdateSysMessageTemplateResponse"),
+            new JavaFile(
+                "UpdateSysPatientSourceAction",
+                "UpdateSysPatientSourceRequest",
+                "UpdateSysPatientSourceResponse"),
+            new JavaFile(
+                "UpdateSysPatientTagAction",
+                "UpdateSysPatientTagRequest",
+                "UpdateSysPatientTagResponse"),
+            new JavaFile(
+                "UpdateSysRegisterTypeAction",
+                "UpdateSysRegisterTypeRequest",
+                "UpdateSysRegisterTypeResponse"),
+            new JavaFile(
+                "UpdateSysRoleInfoAction", "UpdateSysRoleInfoRequest", "UpdateSysRoleInfoResponse"),
+            new JavaFile(
+                "UpdateSysStandardCategoryAction",
+                "UpdateSysStandardCategoryRequest",
+                "UpdateSysStandardCategoryResponse"),
+            new JavaFile(
+                "UpdateSysStandardItemAction",
+                "UpdateSysStandardItemRequest",
+                "UpdateSysStandardItemResponse"),
+            new JavaFile(
+                "UpdateSysStationRadioAction",
+                "UpdateSysStationRadioRequest",
+                "UpdateSysStationRadioResponse"),
+            new JavaFile(
+                "UpdateSysStationRadioEnableStatusAction",
+                "UpdateSysStationRadioRequest",
+                "UpdateSysStationRadioResponse"),
+            new JavaFile(
+                "UpdateSysTreatFeeCategoryAction",
+                "UpdateSysTreatFeeCategoryRequest",
+                "UpdateSysTreatFeeCategoryResponse"),
+            new JavaFile(
+                "UpdateSysTreatFeeItemAction",
+                "UpdateSysTreatFeeItemRequest",
+                "UpdateSysTreatFeeItemResponse"),
+            new JavaFile(
+                "UpdateSysWhiteListAction",
+                "UpdateSysWhiteListRequest",
+                "UpdateSysWhiteListResponse"))
         .forEach(
             e -> {
               try {
@@ -71,19 +131,17 @@ public class Test {
     writer.flush();
   }
 
+  public record JavaFile(String actionName, String requestName, String responseName) {}
 
-  public  record JavaFile(String actionName, String requestName, String responseName) { }
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-
-public class Test {
-  public static void main(String[] args) throws UnsupportedEncodingException {
-    String mytest = System.getProperty("org.glassfish.web.rfc2109_cookie_names_enforced");
-    System.out.println(mytest);
-    System.out.println(new String(mytest.getBytes("GBK")));
-    byte[] bytes1 = "阿".getBytes(StandardCharsets.UTF_8);
-    byte[] bytes2 = "阿".getBytes("GBK");
-    System.out.println(System.getProperty("file.encoding"));
-    System.out.println("你好");
+  class Test1 {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+      String mytest = System.getProperty("org.glassfish.web.rfc2109_cookie_names_enforced");
+      System.out.println(mytest);
+      System.out.println(new String(mytest.getBytes("GBK")));
+      byte[] bytes1 = "阿".getBytes(StandardCharsets.UTF_8);
+      byte[] bytes2 = "阿".getBytes("GBK");
+      System.out.println(System.getProperty("file.encoding"));
+      System.out.println("你好");
+    }
   }
 }
