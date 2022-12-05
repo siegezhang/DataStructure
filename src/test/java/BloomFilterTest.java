@@ -1,10 +1,12 @@
 import basic.bloomfilter.BloomFilter;
-import org.junit.BeforeAll;
-import org.junit.DisplayName;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assertions.assertFalse;
-import static org.junit.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class BloomFilterTest {
     private static BloomFilter filter;
