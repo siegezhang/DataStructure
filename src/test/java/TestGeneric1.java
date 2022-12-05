@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TestGeneric1<AnyType extends Comparable<? super AnyType>> {
 

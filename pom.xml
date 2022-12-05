@@ -29,9 +29,25 @@
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-console-standalone</artifactId>
+            <version>1.8.2</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -106,12 +122,12 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>compile</scope>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--            <artifactId>junit</artifactId>-->
+        <!--            <version>4.12</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -155,30 +171,30 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/pentaho-kettle/kettle-core -->
-        <dependency>
-            <groupId>pentaho-kettle</groupId>
-            <artifactId>kettle-core</artifactId>
-            <version>8.1.0.0-365</version>
-            <!--            <scope>system</scope>-->
-            <!--            <systemPath>D:/kettle-core-8.1.0.0-365.jar</systemPath>-->
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/pentaho-kettle/kettle-core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>pentaho-kettle</groupId>-->
+<!--            <artifactId>kettle-core</artifactId>-->
+<!--            <version>8.1.0.0-365</version>-->
+<!--            &lt;!&ndash;            <scope>system</scope>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <systemPath>D:/kettle-core-8.1.0.0-365.jar</systemPath>&ndash;&gt;-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>pentaho-kettle</groupId>
-            <artifactId>kettle-engine</artifactId>
-            <version>8.1.0.0-365</version>
-            <!--            <scope>system</scope>-->
-            <!--            <systemPath>D:/kettle-engine-8.1.0.0-365.jar</systemPath>-->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>pentaho-kettle</groupId>-->
+<!--            <artifactId>kettle-engine</artifactId>-->
+<!--            <version>8.1.0.0-365</version>-->
+<!--            &lt;!&ndash;            <scope>system</scope>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <systemPath>D:/kettle-engine-8.1.0.0-365.jar</systemPath>&ndash;&gt;-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>pentaho</groupId>
-            <artifactId>metastore</artifactId>
-            <version>8.1.0.0-365</version>
-            <!--            <scope>system</scope>-->
-            <!--            <systemPath>D:/metastore-8.1.0.0-365.jar</systemPath>-->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>pentaho</groupId>-->
+<!--            <artifactId>metastore</artifactId>-->
+<!--            <version>8.1.0.0-365</version>-->
+<!--            &lt;!&ndash;            <scope>system</scope>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <systemPath>D:/metastore-8.1.0.0-365.jar</systemPath>&ndash;&gt;-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

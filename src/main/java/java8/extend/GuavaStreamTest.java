@@ -2,7 +2,7 @@ package java8.extend;
 
 import com.google.common.collect.Streams;
 import lombok.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.stream.Stream;

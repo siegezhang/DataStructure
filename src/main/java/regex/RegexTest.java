@@ -1,6 +1,6 @@
 package regex;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 
 import static org.junit.Assert.assertEquals;

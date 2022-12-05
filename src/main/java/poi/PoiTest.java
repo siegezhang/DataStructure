@@ -6,7 +6,7 @@ import com.deepoove.poi.data.RowRenderData;
 import com.deepoove.poi.data.Rows;
 import com.deepoove.poi.data.Tables;
 import com.deepoove.poi.template.MetaTemplate;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

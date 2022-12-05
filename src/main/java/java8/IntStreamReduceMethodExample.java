@@ -1,6 +1,6 @@
 package java8;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.OptionalInt;
 import java.util.stream.IntStream;

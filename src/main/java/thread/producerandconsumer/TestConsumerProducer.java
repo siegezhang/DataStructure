@@ -1,6 +1,6 @@
 package thread.producerandconsumer;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** junit的单元测试中,用thread创建多个线程时,单元测试并不会等待主线程下启动的新线程是否执行结束,只 要主线程结束完成,单元测试就会关闭,导致主线程中启动的新线程不能顺利执行完! */
 public class TestConsumerProducer {

@@ -1,20 +1,30 @@
 package jdk17;
 
-import org.jetbrains.annotations.NotNull;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 public class RecordTest {
-    @NotNull
-    private static Object getPassenger() {
-        return new Passenger(new Name("siege", "zhang"),
+    private static Stream<Object> getPassenger() {
+        return Stream.of(
+                new Passenger(new Name("siege", "zhang"),
                 new PhoneNumber("086", "18516100450"),
                 new Country("086", "China"),
-                new Country("001", "USA"));
+                new Country("001", "USA")),
+
+                new Passenger(new Name("hello", "zhang"),
+                        new PhoneNumber("086", "18516100450"),
+                        new Country("086", "China"),
+                        new Country("001", "USA"))
+        );
     }
 
-@Test
-public void testRecord(){
-    if (getPassenger() instanceof Passenger(Name (var fName, var lName),
+@ParameterizedTest(name = "{index} {0}")
+@MethodSource("getPassenger")
+public void testRecord(Object obj){
+    if (obj instanceof Passenger(Name (var fName, var lName),
             PhoneNumber phoneNumber,
             Country from,
             Country (String countryCode, String countryName) )) {

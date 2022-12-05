@@ -1,7 +1,7 @@
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GsonTest {
   @Test

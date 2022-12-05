@@ -1,6 +1,6 @@
 package springtest;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class HandlerMethodArgumentResolverTest {

@@ -2,7 +2,7 @@ package java18;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 import java.util.function.Function;

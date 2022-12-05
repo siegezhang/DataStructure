@@ -1,6 +1,6 @@
 //package kettle;
 //
-//import org.junit.Test;
+//import org.junit.jupiter.api.Test;
 //import org.pentaho.di.core.KettleEnvironment;
 //import org.pentaho.di.core.encryption.Encr;
 //import org.pentaho.di.core.exception.KettleException;

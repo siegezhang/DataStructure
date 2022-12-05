@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TestGenetic {
     public static <AnyType extends Comparable<? super AnyType>> AnyType findMax(AnyType[] arr){

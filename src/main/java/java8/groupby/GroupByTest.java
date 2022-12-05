@@ -5,7 +5,7 @@ import lombok.experimental.Accessors;
 import org.apache.commons.compress.utils.Lists;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.function.BiConsumer;

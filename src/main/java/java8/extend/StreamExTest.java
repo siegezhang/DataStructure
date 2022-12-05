@@ -2,7 +2,7 @@ package java8.extend;
 
 import lombok.*;
 import one.util.streamex.StreamEx;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
