@@ -1,6 +1,7 @@
 package java8.function;
 
 import io.reactivex.rxjava3.core.Observable;
+import one.util.streamex.StreamEx;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,6 +18,14 @@ public class IntPredicateTest {
       }
       return andPredicate;
     };
+  }
+
+  public static StreamEx<Integer> sieve(StreamEx<Integer> input, IntPredicate isPrime) {
+    return input.headTail(
+        (head, tail) ->
+            isPrime.test(head)
+                ? sieve(tail, isPrime.and(n -> n % head != 0)).prepend(head)
+                : sieve(tail, isPrime));
   }
 
   @Test
@@ -41,5 +50,10 @@ public class IntPredicateTest {
             .peek(i -> p[0] = p[0].and(v -> v % i != 0));
     Observable<IntStream> primes = Observable.fromAction(() -> primesStream.iterator());
     primes.take(10).forEach((x) -> System.out.println(x.toString()));
+  }
+
+  @Test
+  public void test3() {
+    sieve(StreamEx.iterate(2, x -> x + 1), i -> true).limit(1000).forEach(System.out::println);
   }
 }
