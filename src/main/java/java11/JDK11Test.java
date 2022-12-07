@@ -1,4 +1,4 @@
-package jdk11;
+package java11;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +12,6 @@ import java.nio.file.Path;
 import java.time.Duration;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 

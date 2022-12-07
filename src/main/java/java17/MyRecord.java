@@ -1,4 +1,4 @@
-package jdk17;
+package java17;
 
 /**
  * Record被用来设计传输不可变的数据。从上面的例子可以看到，一个Record类被初始化后里面的属性是不能改变的，
