@@ -3,8 +3,8 @@ package either;
 import java.util.function.Function;
 
 public class Either<L, R> {
-  private L left = null;
-  private R right = null;
+  private final L left;
+  private final R right;
 
   private Either(L l, R r) {
     left = l;
@@ -22,6 +22,11 @@ public class Either<L, R> {
   public <T> T map(Function<R, T> function) {
     if (isLeft()) return null;
     return function.apply(this.right());
+  }
+
+  public <T> T mapLeft(Function<L, T> function) {
+    if (isLeft()) return function.apply(this.left());
+    return null;
   }
 
   public L left() {
