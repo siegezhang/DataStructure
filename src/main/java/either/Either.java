@@ -1,33 +1,38 @@
 package either;
 
-public class Either<A, B> {
-  private A left = null;
-  private B right = null;
+import java.util.function.Function;
 
-  private Either(A a, B b) {
-    left = a;
-    right = b;
+public class Either<L, R> {
+  private L left = null;
+  private R right = null;
+
+  private Either(L l, R r) {
+    left = l;
+    right = r;
   }
 
-  public static <A, B> Either<A, B> left(A a) {
-    return new Either<A, B>(a, null);
+  public static <L, R> Either<L, R> left(L l) {
+    return new Either<>(l, null);
   }
 
-  public static <A, B> Either<A, B> right(B b) {
-    return new Either<A, B>(null, b);
+  public static <L, R> Either<L, R> right(R r) {
+    return new Either<>(null, r);
   }
 
-  public A left() {
+  public <T> T map(Function<R, T> function) {
+    if (isLeft()) return null;
+    return function.apply(this.right());
+  }
+
+  public L left() {
     return left;
   }
 
-  public B right() {
+  public R right() {
     return right;
   }
 
   public boolean isLeft() {
     return left != null;
   }
-
-
 }
