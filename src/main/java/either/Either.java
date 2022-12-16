@@ -19,9 +19,11 @@ public class Either<L, R> {
     return new Either<>(null, r);
   }
 
-  public <T> T map(Function<R, T> function) {
-    if (isLeft()) return null;
-    return function.apply(this.right());
+  public <T> Either<L, T> map(Function<R, T> function) {
+    if (isLeft()) {
+      return left(left);
+    }
+    return right(function.apply(this.right()));
   }
 
   public <T> T mapLeft(Function<L, T> function) {
