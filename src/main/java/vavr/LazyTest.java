@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static io.vavr.API.*;
 
+/** */
 public class LazyTest {
+  @Test
   public void test() {
     Lazy<Double> lazy = Lazy.of(Math::random);
     lazy.isEvaluated(); // = false
