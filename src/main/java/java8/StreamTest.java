@@ -1,16 +1,12 @@
 package java8;
 
 import com.google.common.collect.Lists;
-import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.Test;
 
 /** Stream的一些高级用法 */
 public class StreamTest {
@@ -102,6 +98,27 @@ public class StreamTest {
     List<Integer> list2 = Lists.<Integer>newArrayList(3, 4, 5, 6);
     list1.removeAll(list2);
     System.out.println(list1);
+  }
+
+  /** 失败后重试最多5次，使用场景可以在调用外部接口时增加由于网络问题导致的失败的健壮性 */
+  @Test
+  public void test7() {
+    //    Stream.generate(() -> Math.random() > 0.8 ? "ok" : null)
+    //        .limit(5)
+    //        .filter(Objects::nonNull)
+    //        .findFirst()
+    //        .ifPresent(System.out::println);
+    //
+    //    Stream.iterate(0, i -> i + 2).takeWhile(e -> e < 10).forEach(System.out::println);
+    //    Stream.iterate(0, i -> i + 2).dropWhile(e -> e < 10).forEach(System.out::println);
+    //
+    //    Stream.iterate(0, i -> i + 2)
+    //        .takeWhile(
+    //            e -> {
+    //              return e < 10;
+    //            })
+    //        .forEach(System.out::println);
+    System.getProperties().entrySet().forEach(System.out::println);
   }
 
   public static class Student {

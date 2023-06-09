@@ -16,8 +16,7 @@ public class AddFieldJsonSerializer extends JsonSerializer<String> {
     try {
       Field field = currentValue.getClass().getDeclaredField(fieldName);
       TestAnno annotation = field.getAnnotation(TestAnno.class);
-      System.out.println(annotation.value());
-      gen.writeString(String.valueOf(name));
+      gen.writeString(name);
       gen.writeFieldName(annotation.field());
       gen.writeString(name + "__");
     } catch (NoSuchFieldException e) {

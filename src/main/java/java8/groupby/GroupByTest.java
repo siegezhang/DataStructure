@@ -1,17 +1,16 @@
 package java8.groupby;
 
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.apache.commons.compress.utils.Lists;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
-
-import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class GroupByTest {
   private List<People> people;
@@ -126,6 +125,22 @@ public class GroupByTest {
     List<String> list = Arrays.asList("2018-09-04", "2018-09-06", "2018-09-17");
     list.sort(Comparator.comparing(String::valueOf).reversed());
     System.out.println(list);
+  }
+
+  @Test
+  public void testSorted4() {
+    List<Users> list = new ArrayList<>();
+    Map<String, List<Users>> sortUsers =
+        list.stream()
+            .collect(
+                Collectors.groupingBy(
+                    Users::getName,
+                    Collectors.collectingAndThen(
+                        Collectors.toList(),
+                        (l ->
+                            l.stream()
+                                .sorted(Comparator.comparing(Users::getAge))
+                                .collect(Collectors.toList())))));
   }
 
   @Test
