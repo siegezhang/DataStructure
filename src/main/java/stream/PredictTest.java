@@ -7,12 +7,15 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author siege
+ */
 public class PredictTest {
 
   private List<String> names = Arrays.asList("Adam", "Alexander", "John", "Tom");
 
   @Test
-  public void whenFilterListWithCollectionOfPredicatesUsingAnd_thenSuccess() {
+  public void test1() {
     List<Predicate<String>> allPredicates = new ArrayList<>();
     allPredicates.add(str -> str.startsWith("A"));
     allPredicates.add(str -> str.contains("d"));
@@ -25,7 +28,7 @@ public class PredictTest {
   }
 
   @Test
-  public void whenFilterListWithCollectionOfPredicatesUsingOr_thenSuccess() {
+  public void test2() {
     List<Predicate<String>> allPredicates = new ArrayList<>();
     allPredicates.add(str -> str.startsWith("A"));
     allPredicates.add(str -> str.contains("d"));

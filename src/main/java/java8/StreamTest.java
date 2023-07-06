@@ -103,11 +103,12 @@ public class StreamTest {
   /** 失败后重试最多5次，使用场景可以在调用外部接口时增加由于网络问题导致的失败的健壮性 */
   @Test
   public void test7() {
-    //    Stream.generate(() -> Math.random() > 0.8 ? "ok" : null)
-    //        .limit(5)
-    //        .filter(Objects::nonNull)
-    //        .findFirst()
-    //        .ifPresent(System.out::println);
+    Stream.generate(() -> Math.random() > 0.8 ? "ok" : null)
+        .limit(5)
+        // .filter(Objects::nonNull)
+        .forEach(System.out::println);
+    // .findFirst()
+    // .ifPresent(System.out::println);
     //
     //    Stream.iterate(0, i -> i + 2).takeWhile(e -> e < 10).forEach(System.out::println);
     //    Stream.iterate(0, i -> i + 2).dropWhile(e -> e < 10).forEach(System.out::println);
@@ -118,7 +119,7 @@ public class StreamTest {
     //              return e < 10;
     //            })
     //        .forEach(System.out::println);
-    System.getProperties().entrySet().forEach(System.out::println);
+    //    System.getProperties().entrySet().forEach(System.out::println);
   }
 
   public static class Student {

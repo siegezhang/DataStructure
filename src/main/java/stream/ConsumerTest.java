@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import org.junit.jupiter.api.Test;
 
+/** Consumer可以用来作为回调或者监听,例如一个方法接受Consumer参数,处理完数据之后执行Consumer逻辑,这样就相当于回调了 */
 public class ConsumerTest {
   @Test
   public void test1() {
