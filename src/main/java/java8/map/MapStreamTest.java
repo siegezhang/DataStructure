@@ -1,13 +1,17 @@
 package java8.map;
 
+import com.google.common.collect.Lists;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.function.Function;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
-
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class MapStreamTest {
   @Test
@@ -95,14 +99,8 @@ public class MapStreamTest {
   public void test7() {
     Map<String, Student> map =
         Stream.of(new Student("world", 15), new Student("hello", 16))
-            .collect(Collectors.toMap(Student::getName, it -> it));
-    map.entrySet().stream()
-        .map(
-            e -> {
-              System.out.println(e);
-              return e;
-            })
-        .toList();
+            .collect(Collectors.toMap(Student::getName, Function.identity()));
+    map.entrySet().stream().peek(System.out::println).toList();
     System.out.println(map);
   }
 
@@ -112,6 +110,144 @@ public class MapStreamTest {
     List<Student> students = new ArrayList<>();
     String names = students.stream().map(Student::getName).collect(Collectors.joining());
     System.out.println(names);
+  }
+  /** 测试空集合的情况 */
+  @Test
+  public void test9() {
+    HashMap<Integer, String> firstMap = new HashMap<>();
+    firstMap.put(1, "A");
+    firstMap.put(2, "B");
+    firstMap.put(3, "C");
+    firstMap.put(4, "D");
+    HashMap<Integer, String> secondMap = new HashMap<>();
+    secondMap.put(4, "F");
+    secondMap.put(5, "G");
+    secondMap.forEach((key, value) -> firstMap.merge(key, value, (s, str) -> s.concat(str)));
+    System.out.println(firstMap);
+  }
+
+  @Test
+  public void test10() {
+    Map<String, BigDecimal> mergedMap =
+        getList().stream()
+            .flatMap(m -> m.entrySet().stream())
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, BigDecimal::add));
+    System.out.println(mergedMap);
+  }
+
+  @Test
+  public void test11() {
+    Map<String, BigDecimal> mergedMap =
+        getList().stream()
+            .flatMap(map -> map.entrySet().stream())
+            .collect(
+                Collectors.groupingBy(
+                    Map.Entry::getKey,
+                    Collectors.reducing(BigDecimal.ZERO, Map.Entry::getValue, BigDecimal::add)));
+    System.out.println(mergedMap);
+  }
+
+  @NotNull
+  private static ArrayList<Map<String, BigDecimal>> getList() {
+    return Lists.newArrayList(
+        new HashMap<>() {
+          {
+            put("1", new BigDecimal("0.2"));
+            put("2", new BigDecimal("0.2"));
+            put("3", new BigDecimal("0.2"));
+            put("4", new BigDecimal("0.2"));
+          }
+        },
+        new HashMap<>() {
+          {
+            put("4", new BigDecimal("0.2"));
+            put("5", new BigDecimal("0.2"));
+          }
+        },
+        new HashMap<>() {
+          {
+            put("4", new BigDecimal("0.2"));
+            put("5", new BigDecimal("0.2"));
+          }
+        });
+  }
+
+  @Test
+  public void test12() {
+
+    List<Map<String, Double>> list =
+        Lists.newArrayList(
+            new HashMap<>() {
+              {
+                put("1", 0.2);
+                put("2", 0.2);
+                put("3", 0.2);
+                put("4", 0.2);
+              }
+            },
+            new HashMap<>() {
+              {
+                put("4", 0.2);
+                put("5", 0.2);
+              }
+            },
+            new HashMap<>() {
+              {
+                put("4", 0.2);
+                put("5", 0.2);
+              }
+            });
+
+    Map<String, Double> mergedMap =
+        list.stream()
+            .flatMap(map -> map.entrySet().stream())
+            .collect(
+                Collectors.groupingBy(
+                    Map.Entry::getKey, Collectors.summingDouble(Map.Entry::getValue)));
+
+    System.out.println(mergedMap);
+  }
+
+  @Test
+  public void test13() {
+    String cookies = "i=lol;haha=noice;df3=ddtb";
+    Map<String, String> map =
+        Pattern.compile(";")
+            .splitAsStream(StringUtils.isEmpty(cookies) ? StringUtils.EMPTY : cookies)
+            .map(str -> str.split("="))
+            .collect(
+                HashMap::new,
+                (m, entry) -> {
+                  if (StringUtils.isEmpty(entry[0])) return;
+                  m.put(entry[0], entry[1]);
+                },
+                HashMap::putAll);
+    map.entrySet().forEach(System.out::println);
+  }
+
+  @Test
+  public void test14() {
+    String modulesToUpdate = "potato:module1,tomato:module2";
+    Stream.of(modulesToUpdate)
+        .map(line -> line.split(","))
+        .flatMap(Arrays::stream)
+        .flatMap(Pattern.compile(":")::splitAsStream)
+        .forEach(f -> System.out.println(f));
+  }
+
+  /** TODO 思考如何处理null或空的情况 */
+  @Test
+  public void test15() {
+    String cookies = "i=lol;haha=noice;df3=ddtb";
+    Map<String, String> map =
+        Pattern.compile(";")
+            .splitAsStream(StringUtils.isEmpty(cookies) ? cookies : StringUtils.EMPTY)
+            .map(str -> str.split("="))
+            .collect(
+                Collectors.toMap(
+                    a -> StringUtils.isEmpty(a[0]) ? StringUtils.EMPTY : a[0],
+                    a -> StringUtils.isEmpty(a[1]) ? StringUtils.EMPTY : a[1],
+                    (a, b) -> a));
   }
 
   @Data
