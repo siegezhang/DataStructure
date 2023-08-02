@@ -1,16 +1,13 @@
 package designpattern.visitor;
-/**
- * *
- *
- * <p>观察者模式，这里BeVisitor应该是接口，这里简化了
- */
-public class BeVisitor {
+
+public class BeVisitor implements IBeVisitor {
   private String property;
 
   /***
    *这里可以控制访问者的权限
    */
-  public void accept(Visitor visitor) {
+  @Override
+  public void accept(IVisitor visitor) {
     visitor.visit(this);
   }
 
