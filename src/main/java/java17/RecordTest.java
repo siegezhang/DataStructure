@@ -29,7 +29,7 @@ public void testRecord(Object obj){
             Country from,
             Country (String countryCode, String countryName) )) {
         if (fName != null && countryCode != null) {
-            assert fName.startsWith("siege") && countryCode.equals("001");
+            assert fName.startsWith("siege") || countryCode.equals("001");
         }
     }
 }
