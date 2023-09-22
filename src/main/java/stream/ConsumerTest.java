@@ -12,7 +12,8 @@ public class ConsumerTest {
   public void test1() {
     Consumer<String> c = x -> System.out.println(x.toLowerCase());
     Consumer<String> c1 = x -> System.out.println(x.toUpperCase());
-    c.andThen(c1).accept("Java2s.com");
+    Consumer<String> c2 = c.andThen(c1);
+    c2.accept("Java2s.com");
   }
 
   @Test
