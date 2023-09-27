@@ -92,7 +92,7 @@ public class VelocityTest {
     Map<String, String> map = new HashMap<>();
     map.put("string", "java.lang.String");
     map.put("int", "java.lang.Integer");
-    ctx.put("java8/map", map);
+    ctx.put("feature/java8/map", map);
     List<String> list = new ArrayList<>();
     list.add("string");
     list.add("int");

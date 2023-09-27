@@ -1,6 +1,6 @@
 //package kettle;
 //
-//import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.velocity.Test;
 //import org.pentaho.di.core.KettleEnvironment;
 //import org.pentaho.di.core.encryption.Encr;
 //import org.pentaho.di.core.exception.KettleException;
@@ -9,7 +9,7 @@
 // * 注意的jar包仓库位置，从mvnrepository可以得知只存在https://nexus.pentaho.org/content/groups/omni/中，需要从该处拉取
 // */
 //public class KettleTest {
-//  @Test
+//  @velocity.Test
 //  public void testKettle() {
 //    try {
 //      KettleEnvironment.init();

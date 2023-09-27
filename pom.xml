@@ -236,6 +236,21 @@
             <version>5.3.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.122006.Zircon</groupId>
+            <artifactId>javac</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.122006.Zircon</groupId>
+            <artifactId>base</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.122006.Zircon</groupId>
+            <artifactId>zircon</artifactId>
+            <version>3.1.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -273,17 +288,22 @@
                     <target>21</target>
                     <encoding>UTF-8</encoding>
                     <compilerArgument>-parameters</compilerArgument>
+                    <!--                                        <compilerArgs>-->
+                    <!--                                            &lt;!&ndash;                        <arg>-Xplugin:Manifold</arg>&ndash;&gt;-->
+                    <!--                                            <compilerArg>&#45;&#45;enable-preview</compilerArg>-->
+                    <!--                                        </compilerArgs>-->
                     <compilerArgs>
-                        <!--                        <arg>-Xplugin:Manifold</arg>-->
+<!--                        <compilerArg>-Xplugin:ZrExMethod</compilerArg>-->
+<!--                        <compilerArg>-Xplugin:ZrString</compilerArg>-->
                         <compilerArg>--enable-preview</compilerArg>
                     </compilerArgs>
-<!--                    <annotationProcessorPaths>-->
-<!--                        <path>-->
-<!--                            <groupId>systems.manifold</groupId>-->
-<!--                            <artifactId>manifold-ext</artifactId>-->
-<!--                            <version>${manifold.version}</version>-->
-<!--                        </path>-->
-<!--                    </annotationProcessorPaths>-->
+                    <!--                    <annotationProcessorPaths>-->
+                    <!--                        <path>-->
+                    <!--                            <groupId>systems.manifold</groupId>-->
+                    <!--                            <artifactId>manifold-ext</artifactId>-->
+                    <!--                            <version>${manifold.version}</version>-->
+                    <!--                        </path>-->
+                    <!--                    </annotationProcessorPaths>-->
                 </configuration>
             </plugin>
             <plugin>
