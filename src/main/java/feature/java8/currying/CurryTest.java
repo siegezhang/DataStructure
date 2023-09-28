@@ -11,6 +11,8 @@ public class CurryTest {
   public void test() {
     IntBinaryOperator simpleAdd = (a, b) -> a + b;
     IntFunction<IntUnaryOperator> curriedAdd = a -> b -> a + b;
+    // 表示一个从 Integer 到从 Integer 到 Integer 的函数
+    // 这个柯里化函数接收一个整数 a 作为参数，返回另一个从整数到整数的函数，这个返回的函数再接收一个整数 b 作为参数
     Function<Integer, Function<Integer, Integer>> curriedAdd1 = a -> b -> a + b;
 
     // Demonstrating simple add:
