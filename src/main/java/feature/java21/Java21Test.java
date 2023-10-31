@@ -11,6 +11,10 @@ import static java.lang.StringTemplate.RAW;
 import static java.util.FormatProcessor.FMT;
 import java.time.format.DateTimeFormatter;
 public class Java21Test {
+  StringTemplate.Processor<JSONObject, RuntimeException> JSON
+          = StringTemplate.Processor.of(
+          (StringTemplate st) -> JSONObject.parseObject(st.interpolate())
+  );
   /**
    * New String Methods
    * <li>String.indexOf(String str, int beginIndex, int endIndex) – searches the specified substring
@@ -198,9 +202,7 @@ public class Java21Test {
   }
   @Test
   public void test11(){
-    var JSON = StringTemplate.Processor.of(
-            (StringTemplate st) -> JSONObject.parseObject(st.interpolate())
-    );
+
 
     String name    = "Joan Smith";
     String phone   = "555-123-4567";
