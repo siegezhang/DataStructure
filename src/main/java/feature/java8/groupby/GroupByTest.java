@@ -166,7 +166,7 @@ public class GroupByTest {
 
   @Data
   @Accessors(chain = true)
-  public class OrderMapVo {
+  public static class OrderMapVo {
     private String launchDate;
     private String sexCode;
     private String categoryCode;
@@ -174,7 +174,7 @@ public class GroupByTest {
 
   @Data
   @Accessors(chain = true)
-  public class Users {
+  public static class Users {
     private Integer age;
     private String name;
     private Integer sex;
