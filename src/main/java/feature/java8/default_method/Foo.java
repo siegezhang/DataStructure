@@ -11,7 +11,7 @@ public class Foo implements IFoo {
     ifoo.bar(42);
   }
 
-  public void bar(long i) {
-    System.out.println("Foo.bar(long)");
+  public void bar(int i) {
+    System.out.println("Foo.bar(int)");
   }
 }

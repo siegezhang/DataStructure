@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 public class IntPredicateTest {
   public static <U> Function<U, IntPredicate> and(Function<U, IntPredicate>... filters) {
     return user -> {
-      IntPredicate andPredicate = iidx -> true;
+      IntPredicate andPredicate = _ -> true;
       for (Function<U, IntPredicate> filter : filters) {
         andPredicate = andPredicate.and(filter.apply(user));
       }
