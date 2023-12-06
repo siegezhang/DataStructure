@@ -24,7 +24,7 @@ import javax.tools.Diagnostic;
  *
  *     <p>这个就是lombok的原理
  */
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 @SupportedAnnotationTypes("ast.MyGetter")
 public class MyGetterProcessor extends AbstractProcessor {
 

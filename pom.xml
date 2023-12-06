@@ -315,6 +315,20 @@
                     <!--                        </path>-->
                     <!--                    </annotationProcessorPaths>-->
                 </configuration>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>compile-generator</id>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>compile</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <includes>-->
+<!--                                <include>ast/MyGetterProcessor.java</include>-->
+<!--                            </includes>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.antlr</groupId>
