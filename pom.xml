@@ -11,7 +11,7 @@
     <properties>
         <kotlin.version>1.6.0</kotlin.version>
         <repository.url>http://139.224.50.158:8081</repository.url>
-        <manifold.version>2023.1.26</manifold.version>
+        <manifold.version>2023.1.31</manifold.version>
     </properties>
 
 
