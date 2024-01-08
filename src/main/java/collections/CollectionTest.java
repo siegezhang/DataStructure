@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static java.lang.StringTemplate.STR;
-
 public class CollectionTest {
 
     @Test
@@ -28,6 +26,7 @@ public class CollectionTest {
         }
 
         System.out.println(multiKeyMap.get("a1", "b1", "c1"));
+        String value = multiKeyMap.get("a1", "b1", "c2");
     }
 
     @Data
