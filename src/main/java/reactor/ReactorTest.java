@@ -113,6 +113,21 @@ public class ReactorTest {
         .forEach(System.out::println);
   }
 
+  @Test
+  public void test7() {
+    Flux.just("tom")
+        .map(
+            s -> {
+              System.out.println("(to length) at [" + Thread.currentThread() + "]");
+              return s.length();
+            })
+        .subscribeOn(Schedulers.newSingle("source1"))
+        .subscribeOn(Schedulers.newSingle("source2"))
+        .subscribeOn(Schedulers.newSingle("source3"))
+        .subscribeOn(Schedulers.newSingle("source4"))
+        .subscribe(System.out::println);
+  }
+
   /**
    * <code>
    * Tue Jan 18 18:57:51 CST 2022
