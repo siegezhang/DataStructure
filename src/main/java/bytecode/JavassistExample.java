@@ -33,7 +33,7 @@ public class JavassistExample {
     //        "System.out.println(\"Execution time: \" + (System.currentTimeMillis() - startTime) +
     // \" ms\");");
     ctBehavior.addLocalVariable("startTime", CtClass.longType);
-    ctBehavior.insertBefore("long startTime = System.currentTimeMillis();");
+    ctBehavior.insertBefore("startTime = System.currentTimeMillis();");
     ctBehavior.insertAfter(
         "System.out.println(\"Execution time: \" + (System.currentTimeMillis() - startTime) + \" ms\");");
 

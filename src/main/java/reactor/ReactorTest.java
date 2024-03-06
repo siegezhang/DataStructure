@@ -1,26 +1,33 @@
 package reactor;
 
-import org.junit.jupiter.api.Test;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
-
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
+import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 public class ReactorTest {
   @Test
-  public void test1() {
+  public void test1() throws InterruptedException {
     Flux.just("hello", "world").subscribe(System.out::println);
     Flux.fromArray(new Integer[] {1, 2, 3}).subscribe(System.out::println);
     Flux.empty().subscribe(System.out::println);
 
     Flux.range(1, 10).subscribe(System.out::println);
-    Flux.interval(Duration.of(10, ChronoUnit.SECONDS)).subscribe(System.out::println);
+    Flux<Long> flux = Flux.interval(Duration.of(1, ChronoUnit.SECONDS));
+
+    flux.subscribe(System.out::println);
+
+    // This line keeps the program running to receive emissions
+    while (true) {
+      // Add logic to handle termination if needed (optional)
+      Thread.sleep(Long.MAX_VALUE);
+    }
   }
 
   @Test
