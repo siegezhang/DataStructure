@@ -12,6 +12,11 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 public class ReactorTest {
+  /**
+   * 如果省略subscribeOn,则在subscribe方法被调用线程执行
+   *
+   * @throws InterruptedException
+   */
   @Test
   public void test1() throws InterruptedException {
     Flux.just("hello", "world").subscribe(System.out::println);
@@ -74,7 +79,7 @@ public class ReactorTest {
   public void test5() {
     Flux.just(1, 2)
         .concatWith(Mono.error(new IllegalStateException()))
-        .subscribe(System.out::println, System.err::println);
+        .subscribe(System.out::println, Throwable::printStackTrace);
 
     Flux.just(1, 2)
         .concatWith(Mono.error(new IllegalStateException()))
@@ -91,7 +96,7 @@ public class ReactorTest {
             })
         .subscribe(System.out::println);
 
-    Flux.just(1, 2)
+    Flux.just(3, 4)
         .concatWith(Mono.error(IllegalStateException::new))
         .retry(1)
         .subscribe(System.out::println);
@@ -113,6 +118,7 @@ public class ReactorTest {
         .forEach(System.out::println);
   }
 
+  /** 只有第一个subscribeOn起作用,后续的subscribeOn不起作用 */
   @Test
   public void test7() {
     Flux.just("tom")
