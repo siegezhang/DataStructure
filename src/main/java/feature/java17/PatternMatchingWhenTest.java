@@ -7,7 +7,7 @@ public class PatternMatchingWhenTest {
     class MyEarth {
         int getDamage(Object obj) {
             return switch (obj) {
-                case AirPollution airPol  when airPol.getAQI() > 200 -> 500;
+               // case AirPollution airPol  when airPol.getAQI() > 200 -> 500;
                 case Deforestation def -> def.getTreeDamage();
                 case null, default -> -1;
             };
