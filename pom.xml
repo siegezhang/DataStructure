@@ -210,11 +210,11 @@
             <artifactId>gson</artifactId>
             <version>2.9.1</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>systems.manifold</groupId>-->
-<!--            <artifactId>manifold-ext-rt</artifactId>-->
-<!--            <version>${manifold.version}</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>systems.manifold</groupId>-->
+        <!--            <artifactId>manifold-ext-rt</artifactId>-->
+        <!--            <version>${manifold.version}</version>-->
+        <!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>systems.manifold</groupId>-->
         <!--            <artifactId>manifold-tuple</artifactId>-->
@@ -256,21 +256,21 @@
             <artifactId>javassist</artifactId>
             <version>3.30.2-GA</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>jakarta.validation</groupId>-->
-<!--            <artifactId>jakarta.validation-api</artifactId>-->
-<!--            <version>3.1.0-M1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.validation</groupId>-->
+        <!--            <artifactId>jakarta.validation-api</artifactId>-->
+        <!--            <version>3.1.0-M1</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>8.0.1.Final</version>
         </dependency>
-        <dependency>
-            <groupId>jakarta.el</groupId>
-            <artifactId>jakarta.el-api</artifactId>
-            <version>6.0.0-RC1</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.el</groupId>-->
+        <!--            <artifactId>jakarta.el-api</artifactId>-->
+        <!--            <version>6.0.0-RC1</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.glassfish.expressly</groupId>
             <artifactId>expressly</artifactId>
@@ -340,20 +340,20 @@
                     <!--                        </path>-->
                     <!--                    </annotationProcessorPaths>-->
                 </configuration>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>compile-generator</id>-->
-<!--                        <phase>generate-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>compile</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <includes>-->
-<!--                                <include>ast/MyGetterProcessor.java</include>-->
-<!--                            </includes>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <!--                <executions>-->
+                <!--                    <execution>-->
+                <!--                        <id>compile-generator</id>-->
+                <!--                        <phase>generate-sources</phase>-->
+                <!--                        <goals>-->
+                <!--                            <goal>compile</goal>-->
+                <!--                        </goals>-->
+                <!--                        <configuration>-->
+                <!--                            <includes>-->
+                <!--                                <include>ast/MyGetterProcessor.java</include>-->
+                <!--                            </includes>-->
+                <!--                        </configuration>-->
+                <!--                    </execution>-->
+                <!--                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.antlr</groupId>
