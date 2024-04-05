@@ -55,7 +55,9 @@ dependencies {
 group = 'groupId'
 version = '1.0-SNAPSHOT'
 description = 'DataStructure'
-java.sourceCompatibility = JavaVersion.VERSION_21
+java.sourceCompatibility = JavaVersion.VERSION_22
+java.targetCompatibility = JavaVersion.VERSION_22
+
 
 publishing {
     publications {
@@ -65,6 +67,30 @@ publishing {
     }
 }
 
+
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
+}
+
+test {
+    jvmArgs(['--enable-preview'])
+}
+
+//task wrapper(type: Wrapper) {
+//    gradleVersion = '8.7'
+//}
+
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs += "--enable-preview"
+//}
+//
+//tasks.withType(Test) {
+//    jvmArgs += "--enable-preview"
+//}
+//
+//tasks.withType(JavaExec) {
+//    jvmArgs += '--enable-preview'
+//}
