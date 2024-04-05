@@ -6,14 +6,11 @@
 
 plugins {
     id 'java-library'
-    id 'maven-publish'
+    id 'java'
 }
 
 repositories {
-    mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
+    mavenCentral()
 }
 
 dependencies {
@@ -32,7 +29,8 @@ dependencies {
     api 'com.alibaba:fastjson:1.2.75'
     api 'org.apache.velocity:velocity-engine-core:2.3'
     api 'org.apache.velocity.tools:velocity-tools-generic:3.1'
-    api 'org.projectlombok:lombok:1.18.32'
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
     api 'com.fasterxml.jackson.core:jackson-core:2.13.1'
     api 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
     api 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
@@ -59,20 +57,28 @@ java.sourceCompatibility = JavaVersion.VERSION_22
 java.targetCompatibility = JavaVersion.VERSION_22
 
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            from(components.java)
+//        }
+//    }
+//}
+test {
+    useJUnitPlatform()
 }
-
 
 tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+
 }
 tasks.withType(JavaCompile).each {
-    it.options.compilerArgs.add('--enable-preview')
+    it.options.encoding = "UTF-8"
+    it.options.compilerArgs += ['--enable-preview',
+                                "--add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+                                "--add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+                                "--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+                                "--add-exports jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+                                " --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"]
 }
 
 test {
@@ -93,4 +99,13 @@ test {
 //
 //tasks.withType(JavaExec) {
 //    jvmArgs += '--enable-preview'
+//}
+
+//
+//compileJava {
+//    options.compilerArgs += ["--add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+//                             "--add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+//                             "--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+//                             "--add-exports jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+//                             " --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"]
 //}
