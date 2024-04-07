@@ -29,7 +29,7 @@ dependencies {
     api 'com.alibaba:fastjson:1.2.75'
     api 'org.apache.velocity:velocity-engine-core:2.3'
     api 'org.apache.velocity.tools:velocity-tools-generic:3.1'
-    compileOnly 'org.projectlombok:lombok:1.18.32'
+    compileOnly  'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
     api 'com.fasterxml.jackson.core:jackson-core:2.13.1'
     api 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
@@ -48,6 +48,8 @@ dependencies {
     api 'org.glassfish.expressly:expressly:5.0.0'
     testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
     testImplementation 'org.junit.platform:junit-platform-console-standalone:1.8.2'
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.32")
+    testCompileOnly("org.projectlombok:lombok:1.18.32")
 }
 
 group = 'groupId'
@@ -64,13 +66,7 @@ java.targetCompatibility = JavaVersion.VERSION_22
 //        }
 //    }
 //}
-test {
-    useJUnitPlatform()
-}
 
-tasks.withType(JavaCompile) {
-
-}
 tasks.withType(JavaCompile).each {
     it.options.encoding = "UTF-8"
     it.options.compilerArgs += ['--enable-preview',
@@ -82,6 +78,7 @@ tasks.withType(JavaCompile).each {
 }
 
 test {
+    useJUnitPlatform()
     jvmArgs(['--enable-preview'])
 }
 
