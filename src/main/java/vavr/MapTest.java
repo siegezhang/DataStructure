@@ -4,9 +4,11 @@ import io.vavr.Tuple;
 import io.vavr.Tuple2;
 import io.vavr.collection.HashMap;
 import io.vavr.collection.Map;
+import org.junit.jupiter.api.Test;
+
 import java.util.function.Function;
 import java.util.regex.Pattern;
-import org.junit.Test;
+
 
 public class MapTest {
   @Test
