@@ -2,8 +2,6 @@ package regex;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-
 
 public class RegexTest {
 
@@ -34,7 +32,7 @@ public class RegexTest {
     @Test
     @DisplayName("运行一组断言")
     void assertAllCase() {
-        assertAll("groupAssert", () -> Assertions.assertEquals(2, 1 + 1), () -> Assertions.assertTrue(1 > 0));
+        Assertions.assertAll("groupAssert", () -> Assertions.assertEquals(2, 1 + 1), () -> Assertions.assertTrue(1 > 0));
     }
 
     @Disabled
