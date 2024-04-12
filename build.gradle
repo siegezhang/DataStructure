@@ -49,8 +49,8 @@ dependencies {
     api 'org.glassfish.expressly:expressly:5.0.0'
     // testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
     // testImplementation 'org.junit.platform:junit-platform-console-standalone:1.8.2'
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.32")
-    testCompileOnly("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
+    compileOnly("org.projectlombok:lombok:1.18.32")
 }
 
 group = 'groupId'

@@ -1,9 +1,8 @@
 import basic.circularqueue.CircularQueue;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 class CircularQueueTest {
@@ -11,19 +10,19 @@ class CircularQueueTest {
 
     @BeforeAll
     @DisplayName("初始化queue")
-    static void init(){
-        queue=new CircularQueue<>(2);
+    static void init() {
+        queue = new CircularQueue<>(2);
     }
 
     @Test
     @DisplayName("环形队列测试")
-    void test(){
+    void test() {
         queue.enqueue("hello");
         queue.enqueue("word");
-        assertTrue(queue.isFull());
-        assertEquals("hello",queue.dequeue());
-        assertFalse(queue.isEmpty());
-        assertEquals("word",queue.dequeue());
-        assertTrue(queue.isEmpty());
+        Assertions.assertTrue(queue.isFull());
+        Assertions.assertEquals("hello", queue.dequeue());
+        Assertions.assertFalse(queue.isEmpty());
+        Assertions.assertEquals("word", queue.dequeue());
+        Assertions.assertTrue(queue.isEmpty());
     }
 }
