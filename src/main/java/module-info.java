@@ -49,5 +49,6 @@ open module DataStructure {
     requires velocity.engine.core;
     requires velocity.tools.generic;
     requires java.desktop;
+    requires spring.core;
 
 }
