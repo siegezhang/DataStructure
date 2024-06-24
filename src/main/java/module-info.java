@@ -1,6 +1,6 @@
 
 
-open module DataStructure {
+open module com.datallin.DataStructure {
     requires annotations;
     requires aviator;
     requires cglib;
@@ -50,5 +50,13 @@ open module DataStructure {
     requires velocity.tools.generic;
     requires java.desktop;
     requires spring.core;
+    requires spring.aop;
+    requires spring.context;
+    requires commons.logging;
+    requires spring.beans;
+
+    provides spi.SpiService with spi.JavaSpiImpl;
+
+    uses spi.SpiService;
 
 }
