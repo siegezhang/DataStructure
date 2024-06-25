@@ -54,6 +54,7 @@ open module com.datallin.DataStructure {
     requires spring.context;
     requires commons.logging;
     requires spring.beans;
+    requires dubbo;
 
     provides spi.SpiService with spi.JavaSpiImpl;
 
