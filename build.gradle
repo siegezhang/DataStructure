@@ -51,6 +51,7 @@ dependencies {
     implementation 'org.javassist:javassist:3.30.2-GA'
     implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
     implementation 'org.glassfish.expressly:expressly:5.0.0'
+    implementation group: 'com.google.googlejavaformat', name: 'google-java-format', version: '1.22.0'
     // testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
     // testImplementation 'org.junit.platform:junit-platform-console-standalone:1.8.2'
 }
@@ -73,7 +74,7 @@ java.targetCompatibility = JavaVersion.VERSION_22
 tasks.withType(JavaCompile).each {
     it.options.encoding = "UTF-8"
     it.options.compilerArgs += ['--enable-preview',
-            "-parameters",
+                                "-parameters",
                                 "--add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
                                 "--add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
                                 "--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
