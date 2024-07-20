@@ -59,8 +59,8 @@ dependencies {
 group = 'groupId'
 version = '1.0-SNAPSHOT'
 description = 'DataStructure'
-java.sourceCompatibility = JavaVersion.VERSION_22
-java.targetCompatibility = JavaVersion.VERSION_22
+java.sourceCompatibility = JavaVersion.VERSION_21
+java.targetCompatibility = JavaVersion.VERSION_21
 
 
 //publishing {
