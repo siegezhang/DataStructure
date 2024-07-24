@@ -16,12 +16,13 @@ import java.awt.*;
  * <p>https://blog.jetbrains.com/idea/2024/02/constructor-makeover-in-java-22/</p>
  */
 public class IndustryElementAfterJDK22 extends Element {
-  private static final int MIN_ATOMIC_NUMBER = 1;
-  private static final int MAX_ATOMIC_NUMBER = 118;
+    private static final int MIN_ATOMIC_NUMBER = 1;
+    private static final int MAX_ATOMIC_NUMBER = 118;
 
-  public IndustryElementAfterJDK22(int atomicNumber, Color color) {
-    if (atomicNumber < MIN_ATOMIC_NUMBER || atomicNumber > MAX_ATOMIC_NUMBER)
-      throw new IllegalArgumentException("Atomic number out of range");
-    super(atomicNumber, color);
-  }
+    public IndustryElementAfterJDK22(int atomicNumber, Color color) {
+        super(atomicNumber, color);
+        if (atomicNumber < MIN_ATOMIC_NUMBER || atomicNumber > MAX_ATOMIC_NUMBER)
+            throw new IllegalArgumentException("Atomic number out of range");
+        // super(atomicNumber, color);
+    }
 }

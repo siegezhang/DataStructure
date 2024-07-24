@@ -22,7 +22,7 @@ public class CollectionTest {
 
 
         for (Map.Entry<MultiKey<? extends String>, String> entry : multiKeyMap.entrySet()) {
-            System.out.println(STR. "key:\{entry.getKey().getKey(0)}-\{entry.getKey().getKey(1)}-\{entry.getKey().getKey(2)},value:\{entry.getValue()}");
+//            System.out.println(STR. "key:\{entry.getKey().getKey(0)}-\{entry.getKey().getKey(1)}-\{entry.getKey().getKey(2)},value:\{entry.getValue()}");
         }
 
         System.out.println(multiKeyMap.get("a1", "b1", "c1"));

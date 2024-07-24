@@ -9,6 +9,7 @@ public class ServiceB {
 
   @Override
   public String toString() {
-    return STR."ServiceB{serviceA=\{serviceA},serviceB=\{this.hashCode()}}";
+    //return STR."ServiceB{serviceA=\{serviceA},serviceB=\{this.hashCode()}}";
+    return null;
   }
 }

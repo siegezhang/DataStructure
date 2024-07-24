@@ -1,15 +1,15 @@
 
 
 open module com.datallin.DataStructure {
-    requires annotations;
-    requires aviator;
-    requires cglib;
+//    requires annotations;
+//    requires aviator;
+//    requires cglib;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
     requires com.google.common;
     requires com.google.gson;
-    requires fastjson;
+    //requires fastjson;
     requires io.netty.codec;
     requires io.netty.transport;
     requires io.netty.transport.sctp;
@@ -43,18 +43,18 @@ open module com.datallin.DataStructure {
     requires org.junit.platform.commons;
     requires org.junit.platform.engine;
     requires org.slf4j;
-    requires poi.tl;
-    requires reactor.core;
+    //requires poi.tl;
+   // requires reactor.core;
     requires spring.test;
-    requires velocity.engine.core;
-    requires velocity.tools.generic;
+    //requires velocity.engine.core;
+    //requires velocity.tools.generic;
     requires java.desktop;
     requires spring.core;
     requires spring.aop;
     requires spring.context;
-    requires commons.logging;
+    //requires commons.logging;
     requires spring.beans;
-    requires dubbo;
+    //requires dubbo;
 
     provides spi.SpiService with spi.JavaSpiImpl;
 

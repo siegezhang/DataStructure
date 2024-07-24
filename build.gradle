@@ -62,6 +62,11 @@ description = 'DataStructure'
 java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // Replace 17 with the version you installed
+    }
+}
 
 //publishing {
 //    publications {
@@ -71,15 +76,15 @@ java.targetCompatibility = JavaVersion.VERSION_21
 //    }
 //}
 
-tasks.withType(JavaCompile).each {
+tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     it.options.compilerArgs += ['--enable-preview',
                                 "-parameters",
-                                "--add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
-                                "--add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
-                                "--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
-                                "--add-exports jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
-                                " --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"]
+                                "--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+                                "--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+                                "--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+                                "--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+                                "--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"]
 }
 
 test {
