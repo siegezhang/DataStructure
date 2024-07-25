@@ -1,8 +1,12 @@
 package annotation;
 
+import annotation.desensitized.another.DesensitizedSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.time.LocalDate;
 
 public class Person {
+  @JsonSerialize(using = DesensitizedSerializer.class)
   private String lastName;
   private String firstName;
   private LocalDate dateOfBirth;
