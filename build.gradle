@@ -56,6 +56,11 @@ dependencies {
     // testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
     // testImplementation 'org.junit.platform:junit-platform-console-standalone:1.8.2'
     implementation group: 'cn.hutool', name: 'hutool-all', version: '5.8.29'
+    implementation 'fr.inria.gforge.spoon:spoon-core:11.0.1-beta-17'
+    // implementation 'fr.inria.gforge.spoon:spoon-core:10.0.0'
+    implementation 'com.github.javaparser:javaparser-core:3.26.1'
+    implementation 'org.springframework.security:spring-security-crypto:6.3.3'
+
 
 }
 

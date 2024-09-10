@@ -585,7 +585,7 @@ public class JacksonTest {
   }
 
   @Data
-  @EqualsAndHashCode(callSuper=false)
+  @EqualsAndHashCode(callSuper = false)
   public static class FirstBean extends AbstractBean {
     String firstName;
 
@@ -596,7 +596,7 @@ public class JacksonTest {
   }
 
   @Data
-  @EqualsAndHashCode(callSuper=false)
+  @EqualsAndHashCode(callSuper = false)
   public static class LastBean extends AbstractBean {
     String lastName;
 
