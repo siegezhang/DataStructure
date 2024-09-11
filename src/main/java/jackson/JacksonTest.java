@@ -765,4 +765,11 @@ public class JacksonTest {
     ObjectWithMap update = objectMapper.readerForUpdating(objectToUpdateWith).readValue(newData);
     System.out.println(update);
   }
+
+  @Test
+  public void testObjectToMap() throws IOException {
+    ObjectMapper mapper = new ObjectMapper();
+    Student s = Student.builder().name("小明").build();
+    Map<String, Object> map = mapper.convertValue(s, new TypeReference<>() {});
+  }
 }

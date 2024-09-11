@@ -138,6 +138,36 @@ public class RestClientTest {
             .build();
   }
 
+  @Test
+  public void test8() {
+    RestClient restClient = RestClient.builder().baseUrl("https://test.com/api").build();
+    String pathVariable = "pathVariable";
+    ResponseEntity<String> response =
+        restClient
+            .get()
+            .uri(
+                uriBuilder ->
+                    uriBuilder
+                        .path("/" + pathVariable)
+                        .queryParam("param1", "value1")
+                        .queryParam("param2", "value2")
+                        .queryParam("param3", "value3")
+                        .queryParam("param4", "value4")
+                        .queryParam("param5", "value5")
+                        .build())
+            .header("Content-Type", "application/json")
+            .retrieve()
+            .toEntity(String.class);
+  }
+
+  @Test
+  public void test9() {
+    RestClient restClient = RestClient.builder().baseUrl("https://test.com/api").build();
+    int id = 1;
+    String param1 = "param";
+    restClient.get().uri("https://petclinic.example.com/pets/{id}?param1={param1}", id, param1);
+  }
+
   private Pet convertResponse(
       RestClient.RequestHeadersSpec.ConvertibleClientHttpResponse response) {
     return new Pet();
