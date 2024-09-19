@@ -61,7 +61,9 @@ dependencies {
     implementation 'com.github.javaparser:javaparser-core:3.26.1'
     implementation 'org.springframework.security:spring-security-crypto:6.3.3'
 
-
+    implementation 'org.openjdk.jmh:jmh-core:1.37'
+    implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+    annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.37"
 }
 
 group = 'groupId'
