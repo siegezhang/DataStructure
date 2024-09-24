@@ -13,11 +13,8 @@ public class ValidatorTest {
         Person person = new Person();
         person.setName("fsx");
         person.setAge(25);
+        person.setAuditStatus(3);
         person.setHobbies(Arrays.asList("足球", "篮球"));
-        Person child = new Person();
-        child.setName("child");
-        child.setAge(10);
-        person.setChild(child);
 
         Set<ConstraintViolation<Person>> result =
                 Validation.buildDefaultValidatorFactory().getValidator().validate(person);
