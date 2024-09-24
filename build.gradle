@@ -64,6 +64,17 @@ dependencies {
     implementation 'org.openjdk.jmh:jmh-core:1.37'
     implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
     annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.37"
+     implementation 'javax.xml.soap:javax.xml.soap-api:1.4.0'
+    implementation 'com.sun.activation:javax.activation:1.2.0'
+     implementation 'com.sun.xml.messaging.saaj:saaj-impl:1.5.1'
+    //implementation 'org.apache.axis2:axis2:1.8.1'
+    //implementation 'org.apache.axis2:axis2:1.8.1'
+    //  implementation 'javax.xml.bind:jaxb-api:2.3.1'
+   // implementation 'com.sun.xml.bind:jaxb-impl:2.3.1'
+   // implementation 'org.springframework.boot:spring-boot-starter-web-services:3.2.4'
+//    implementation 'javax.xml.soap:javax.xml.soap-api:1.4.0'
+
+
 }
 
 group = 'groupId'
